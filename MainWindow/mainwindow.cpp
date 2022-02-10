@@ -1,7 +1,6 @@
 #include "mainwindow.hpp"
 #include "ui_mainwindow.h"
 
-
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow) {
     ConnectButton();
     ui->setupUi(this);
@@ -24,7 +23,7 @@ void MainWindow::SignIn() {
         QMessageBox::warning(this, "Authorize", "Wrong login or password");
     } else {
         w_Auth.close();
-        show();
+        this->show();
     }
 }
 
