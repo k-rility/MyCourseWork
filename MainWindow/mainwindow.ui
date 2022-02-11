@@ -16,20 +16,53 @@
   <property name="styleSheet">
    <string notr="true">background-color: rgb(46, 52, 54)</string>
   </property>
-  <widget class="QPushButton" name="pushButton">
+ </widget>
+<widget class="QPushButton" name="pushButton_RegularCustomers">
    <property name="geometry">
     <rect>
-     <x>580</x>
-     <y>280</y>
-     <width>89</width>
-     <height>25</height>
+     <x>360</x>
+     <y>240</y>
+     <width>351</width>
+     <height>41</height>
     </rect>
    </property>
-   <property name="text">
-    <string>PushButton</string>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
    </property>
-  </widget>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+	color: rgb(211, 215, 207);
+	border: 2px solid rgb(211, 215, 207);
+	border-radius:20px;
+	background-color: rgb(63, 67, 68);
+	font: 13pt 'Ubuntu';
+}
+QPushButton::hover{
+	border: 2px solid rgb(85, 87, 83);
+	background-color: rgb(45, 47, 48)
+}</string>
+   </property>
+   <property name="text">
+    <string>Booking</string>
+   </property>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>pushButton_reg_customers</sender>
+   <signal>clicked()</signal>
+   <receiver>main_window</receiver>
+   <slot>reg_customers_clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>389</x>
+     <y>253</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>471</x>
+     <y>279</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

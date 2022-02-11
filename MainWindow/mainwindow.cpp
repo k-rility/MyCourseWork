@@ -14,6 +14,11 @@ void MainWindow::AuthShow() {
     w_Auth.show();
 }
 
+void MainWindow::OnRegularCustomersClicked() {
+    this->hide();
+    ui_RegularCustomers.show();
+}
+
 void MainWindow::ConnectButton() {
     QObject::connect(&w_Auth, &AuthWindow::SignInClicked, this, &MainWindow::SignIn);
 }

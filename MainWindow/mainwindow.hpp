@@ -3,9 +3,13 @@
 
 #include <QMainWindow>
 #include <QWidget>
-#include "DataBase/db_interface.hpp"
-#include "AuthWindow/authwindow.hpp"
 #include <QMessageBox>
+#include <QTableView>
+
+#include "DataBase/db_interface.hpp"
+
+#include "AuthWindow/authwindow.hpp"
+#include "MainWindow/regular_customers.hpp"
 
 
 namespace Ui {
@@ -26,9 +30,20 @@ public:
 
     void SignIn();
 
+//    void RegCustShow();
+
+//signals:
+//
+//    void RegularCustomersClicked();
+
+private slots:
+
+    void OnRegularCustomersClicked();
+
 private:
     Ui::MainWindow *ui;
     AuthWindow w_Auth;
+    RegularCustomers ui_RegularCustomers;
     db_interface query;
 };
 

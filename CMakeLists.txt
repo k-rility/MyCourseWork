@@ -31,6 +31,14 @@ add_executable(CourseWork
 
         DataBase/db_interface.cpp
         DataBase/db_interface.hpp
+
+        MainWindow/mainwindow_interface.cpp
+        MainWindow/mainwindow_interface.hpp
+        MainWindow/mainwindow_interface.ui
+
+        MainWindow/regular_customers.cpp
+        MainWindow/regular_customers.hpp
+        MainWindow/regular_customers.ui
         )
 
 target_link_libraries(CourseWork Qt5::Widgets Qt5::Core Qt5::Sql)
