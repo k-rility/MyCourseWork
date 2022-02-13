@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>RegularCustomers</class>
- <widget class="QWidget" name="regular_customers">
+ <class>Booking</class>
+ <widget class="QWidget" name="booking">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,10 +11,10 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Regular Customers</string>
+   <string>Booking</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(46,52,54)</string>
+   <string notr="true">background-color: rgb(46, 52, 54)</string>
   </property>
  </widget>
  <resources/>

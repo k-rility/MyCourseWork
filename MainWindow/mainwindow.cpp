@@ -11,7 +11,11 @@ MainWindow::~MainWindow() noexcept {
 }
 
 void MainWindow::AuthShow() {
-    w_Auth.show();
+    ui_Auth.show();
+}
+
+void MainWindow::ConnectButton() {
+    QObject::connect(&ui_Auth, &AuthWindow::SignInClicked, this, &MainWindow::SignIn);
 }
 
 void MainWindow::OnRegularCustomersClicked() {
@@ -19,15 +23,16 @@ void MainWindow::OnRegularCustomersClicked() {
     ui_RegularCustomers.show();
 }
 
-void MainWindow::ConnectButton() {
-    QObject::connect(&w_Auth, &AuthWindow::SignInClicked, this, &MainWindow::SignIn);
+void MainWindow::OnBookingClicked() {
+    this->hide();
+    ui_Booking.show();
 }
 
 void MainWindow::SignIn() {
-    if (!query.SignInQuery(w_Auth.OnPasswordLineEdit(), w_Auth.OnLoginLineEdit())) {
+    if (!query.SignInQuery(ui_Auth.OnPasswordLineEdit(), ui_Auth.OnLoginLineEdit())) {
         QMessageBox::warning(this, "Authorize", "Wrong login or password");
     } else {
-        w_Auth.close();
+        ui_Auth.close();
         this->show();
     }
 }

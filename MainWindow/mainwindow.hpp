@@ -10,6 +10,7 @@
 
 #include "AuthWindow/authwindow.hpp"
 #include "MainWindow/regular_customers.hpp"
+#include "MainWindow/booking.hpp"
 
 
 namespace Ui {
@@ -30,20 +31,17 @@ public:
 
     void SignIn();
 
-//    void RegCustShow();
-
-//signals:
-//
-//    void RegularCustomersClicked();
-
 private slots:
 
     void OnRegularCustomersClicked();
 
+    void OnBookingClicked();
+
 private:
     Ui::MainWindow *ui;
-    AuthWindow w_Auth;
+    AuthWindow ui_Auth;
     RegularCustomers ui_RegularCustomers;
+    Booking ui_Booking;
     db_interface query;
 };
 

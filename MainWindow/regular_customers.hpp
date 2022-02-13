@@ -2,6 +2,8 @@
 #define REGULAR_CUSTOMERS_HPP_
 
 #include <QWidget>
+#include <QTableWidget>
+#include <QSqlTableModel>
 
 
 namespace Ui { class RegularCustomers; }
@@ -16,6 +18,7 @@ public:
 
 private:
     Ui::RegularCustomers *ui;
+    QSqlTableModel *model;
 };
 
 

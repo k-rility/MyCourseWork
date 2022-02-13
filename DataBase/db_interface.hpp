@@ -25,6 +25,7 @@ public:
 
      bool SignInQuery(const QString &, const QString &);
 
+
 private:
 
     QSqlDatabase database;

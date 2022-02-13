@@ -43,6 +43,35 @@ QPushButton::hover{
 }</string>
    </property>
    <property name="text">
+    <string>Regular Customers</string>
+   </property>
+ </widget>
+<widget class="QPushButton" name="pushButton_Booking">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>290</y>
+     <width>351</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+	color: rgb(211, 215, 207);
+	border: 2px solid rgb(211, 215, 207);
+	border-radius:20px;
+	background-color: rgb(63,67,68);
+	fong: 13pt 'Ubuntu';
+}
+QPushButton::hover{
+	border: 2px solid rgb(85, 87, 83);
+	background-color: rgb(45, 47, 48)
+}</string>
+   </property>
+   <property name="text">
     <string>Booking</string>
    </property>
  </widget>
