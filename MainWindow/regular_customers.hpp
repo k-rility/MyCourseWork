@@ -2,9 +2,10 @@
 #define REGULAR_CUSTOMERS_HPP_
 
 #include <QWidget>
-#include <QTableWidget>
-#include <QSqlTableModel>
+#include <QSqlQueryModel>
+#include <QTableView>
 
+#include "DataBase/db_interface.hpp"
 
 namespace Ui { class RegularCustomers; }
 
@@ -16,9 +17,11 @@ public:
 
     ~RegularCustomers() noexcept;
 
+    void createUi();
+
 private:
     Ui::RegularCustomers *ui;
-    QSqlTableModel *model;
+    db_interface query;
 };
 
 

@@ -16,6 +16,33 @@
   <property name="styleSheet">
    <string notr="true">background-color: rgb(46,52,54)</string>
   </property>
+  <widget class="QTableView" name="tableView">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>20</y>
+     <width>991</width>
+     <height>521</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QTableView{
+	background-color:rgb(213, 214, 225);
+	selection-background-color: rgb(52, 101, 164);
+	font: 13pt &quot;Ubuntu&quot;;
+}
+QHeaderView::section{
+background-color: rgb(85, 87, 83);
+	font: 14pt &quot;Ubuntu&quot;;
+}</string>
+   </property>
+   <property name="alternatingRowColors">
+    <bool>true</bool>
+   </property>
+   <property name="textElideMode">
+    <enum>Qt::ElideNone</enum>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>
