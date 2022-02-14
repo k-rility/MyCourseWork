@@ -22,8 +22,8 @@ bool DataBaseInterface::ConnectToDataBase(const QString &PathToDataBase) {
 
 bool DataBaseInterface::SignInQuery(const QString &password, const QString &login) {
     QSqlQuery query;
-    QString QueryStr = "SELECT * FROM AdminPass WHERE login='%1'";
-    if (!query.exec(QueryStr.arg(login))) {
+    QString QueryString = "SELECT * FROM AdminPass WHERE login='%1'";
+    if (!query.exec(QueryString.arg(login))) {
         qDebug() << "Unable to execute query - exiting" << query.lastError() << " : " << query.lastQuery();
         return false;
     }
@@ -43,4 +43,19 @@ bool DataBaseInterface::CloseDataBase() {
     database.close();
 }
 
-
+bool DataBaseInterface::InsertIntoBookingTable(const QVariantList &data) {
+    QSqlQuery query;
+    QString QueryString = "INSERT INTO Booking (STATUS, USER, USER_COUNT, DATE) VALUES (:STATUS,:USER,:USER_COUNT,:DATE)";
+    query.bindValue(":STATUS", data[0].toBool());
+    query.bindValue(":USER", data[1].toString());
+    query.bindValue(":USER_COUNT", data[2].toInt());
+    query.bindValue(":DATE", data[3].toDateTime());
+    if (!query.exec()) {
+        qDebug() << "Error insert into Booking";
+        qDebug() << query.lastError() << " : " << query.lastQuery();
+        return false;
+    } else {
+        return true;
+    }
+    return false;
+}

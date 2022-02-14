@@ -12,12 +12,12 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
                                            << trUtf8("name")
                                            << trUtf8("count"));
     ui_RegularCustomers.createUi();
-    ui_Booking.setupModel("SELECT * FROM Booking", QStringList()
-            << trUtf8("id")
-            << trUtf8("status")
-            << trUtf8("date")
-            << trUtf8("user")
-            << trUtf8("user count"));
+    ui_Booking.setupModel(QStringList()
+                                  << trUtf8("id")
+                                  << trUtf8("status")
+                                  << trUtf8("date")
+                                  << trUtf8("user")
+                                  << trUtf8("user count"));
     ui_Booking.createUi();
     ui->setupUi(this);
 }

@@ -4,8 +4,9 @@
 #include <QWidget>
 #include <QString>
 #include <QStringList>
-#include <QSqlQueryModel>
+#include <QSqlTableModel>
 #include <QTableView>
+#include <QObject>
 
 #include "booking_dialog_add.hpp"
 
@@ -23,7 +24,7 @@ public:
 
     void createUi();
 
-    void setupModel(const QString &, const QStringList &);
+    void setupModel( const QStringList &);
 
 private slots:
 
@@ -31,9 +32,11 @@ private slots:
 
     void OnAddClicked();
 
+    void slotUpdateModel();
+
 private:
     Ui::Booking *ui;
-    QSqlQueryModel *model;
+    QSqlTableModel *model;
 };
 
 

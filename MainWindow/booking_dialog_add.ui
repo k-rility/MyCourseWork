@@ -16,7 +16,7 @@
   <property name="styleSheet">
    <string notr="true">background-color: rgb(46, 52,54)</string>
   </property>
-  <widget class="QLineEdit" name="PasswordLineEdit">
+  <widget class="QLineEdit" name="UserLineEdit">
    <property name="geometry">
     <rect>
      <x>130</x>
@@ -46,7 +46,7 @@ QLineEdit::focus{
     <number>20</number>
    </property>
   </widget>
-  <widget class="QLineEdit" name="PasswordLineEdit_2">
+  <widget class="QLineEdit" name="UserCountLineEdit">
    <property name="geometry">
     <rect>
      <x>130</x>
@@ -76,7 +76,7 @@ QLineEdit::focus{
     <number>20</number>
    </property>
   </widget>
-  <widget class="QLineEdit" name="PasswordLineEdit_3">
+  <widget class="QLineEdit" name="DateLineEdit">
    <property name="geometry">
     <rect>
      <x>130</x>
@@ -157,7 +157,60 @@ font: 13pt &quot;Ubuntu&quot;;</string>
     <string>User</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="SignInClicked">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>280</y>
+     <width>451</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+	color: rgb(211, 215, 207);
+	border: 2px solid rgb(211, 215, 207);
+	border-radius:20px;
+	background-color: rgb(63, 67, 68);
+	font: 13pt &quot;Ubuntu&quot;;
+}
+QPushButton::hover{
+	border: 2px solid rgb(85, 87, 83);
+	background-color: rgb(45, 47, 48)
+}
+</string>
+   </property>
+   <property name="text">
+    <string>Accept</string>
+   </property>
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+  </widget>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>SignInClicked</sender>
+   <signal>clicked()</signal>
+   <receiver>booking_dialog_add</receiver>
+   <slot>OnAcceptClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>253</x>
+     <y>293</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>294</x>
+     <y>341</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>OnAcceptClicked()</slot>
+ </slots>
 </ui>
