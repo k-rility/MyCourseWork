@@ -4,6 +4,9 @@
 #include <QWidget>
 #include <QSqlQueryModel>
 #include <QTableView>
+#include <QSqlQueryModel>
+#include <QStringList>
+#include <QString>
 
 #include "DataBase/db_interface.hpp"
 
@@ -19,9 +22,11 @@ public:
 
     void createUi();
 
+    void setupModel(const QString&, const QStringList&);
+
 private:
     Ui::RegularCustomers *ui;
-    db_interface query;
+    QSqlQueryModel *model;
 };
 
 

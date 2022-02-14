@@ -10,7 +10,6 @@
 #include <QFile>
 #include <QSqlQuery>
 #include <QSqlRecord>
-#include <QSqlTableModel>
 
 
 class db_interface : public QObject {
@@ -26,12 +25,6 @@ public:
 
     bool SignInQuery(const QString &, const QString &);
 
-    void QuerySetupModel(const QString &, const QString &, const QStringList &);
-
-    QSqlTableModel *getModel() const;
-
-    void selectModel() const;
-
     bool CloseDataBase();
 
 
@@ -39,7 +32,6 @@ private:
 
     QSqlDatabase database;
     QSqlQuery query;
-    QSqlTableModel *model;
 };
 
 

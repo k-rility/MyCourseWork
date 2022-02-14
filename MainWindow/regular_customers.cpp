@@ -4,17 +4,22 @@
 
 RegularCustomers::RegularCustomers(QWidget *parent) : QWidget(parent), ui(new Ui::RegularCustomers) {
     ui->setupUi(this);
-    query.QuerySetupModel("SELECT user FROM RegularCustomers WHERE count > 5", "RegularCustomers",
-                          QStringList() << trUtf8("id") << trUtf8("user") << trUtf8("count"));
-    createUi();
 }
 
 RegularCustomers::~RegularCustomers() {
     delete ui;
 }
 
+void RegularCustomers::setupModel(const QString &TableName, const QStringList &Headers) {
+    model = new QSqlQueryModel;
+    model->setQuery("SELECT * FROM Clients WHERE count > 5");
+    for (int i = 0, j = 0; i < model->columnCount(); i++, j++) {
+        model->setHeaderData(i, Qt::Horizontal, Headers[j]);
+    }
+}
+
 void RegularCustomers::createUi() {
-    ui->tableView->setModel(query.getModel());
+    ui->tableView->setModel(model);
 
     ui->tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
 
@@ -22,8 +27,6 @@ void RegularCustomers::createUi() {
 
     ui->tableView->resizeColumnsToContents();
     ui->tableView->horizontalHeader()->setStretchLastSection(true);
-
-    query.selectModel();
 }
 
 

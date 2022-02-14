@@ -3,6 +3,8 @@
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow) {
     ConnectButton();
+    ui_RegularCustomers.setupModel("Clients",QStringList()<<trUtf8("id")<<trUtf8("name")<<trUtf8("count"));
+    ui_RegularCustomers.createUi();
     ui->setupUi(this);
 }
 

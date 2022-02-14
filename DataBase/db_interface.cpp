@@ -44,23 +44,6 @@ bool db_interface::SignInQuery(const QString &password, const QString &login) {
     return true;
 }
 
-void db_interface::QuerySetupModel(const QString &query, const QString &TableName, const QStringList &Headers) {
-    model = new QSqlTableModel;
-    model->setTable(TableName);
-    for (int i = 0, j = 0; i < model->columnCount(); i++, j++) {
-        model->setHeaderData(i, Qt::Horizontal, Headers[j]);
-    }
-    model->setSort(0, Qt::AscendingOrder);
-}
-
-QSqlTableModel *db_interface::getModel() const {
-    return model;
-}
-
-void db_interface::selectModel() const {
-    model->select();
-}
-
 bool db_interface::CloseDataBase() {
     database.close();
 }
