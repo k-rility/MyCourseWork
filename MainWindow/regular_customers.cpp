@@ -2,7 +2,7 @@
 #include "ui_regular_customers.h"
 
 
-RegularCustomers::RegularCustomers(QWidget *parent) : QWidget(parent), ui(new Ui::RegularCustomers) {
+RegularCustomers::RegularCustomers(window_base *parent) : window_base(parent), ui(new Ui::RegularCustomers) {
     ui->setupUi(this);
 }
 
@@ -10,16 +10,16 @@ RegularCustomers::~RegularCustomers() {
     delete ui;
 }
 
-void RegularCustomers::setupModel(const QString &TableName, const QStringList &Headers) {
-    model = new QSqlQueryModel;
-    model->setQuery("SELECT * FROM Clients WHERE count > 5");
-    for (int i = 0, j = 0; i < model->columnCount(); i++, j++) {
-        model->setHeaderData(i, Qt::Horizontal, Headers[j]);
-    }
-}
+//void RegularCustomers::setupModel(const QString &TableName, const QStringList &Headers) {
+//    model = new QSqlQueryModel;
+//    model->setQuery("SELECT * FROM Clients WHERE count > 5");
+//    for (int i = 0, j = 0; i < model->columnCount(); i++, j++) {
+//        model->setHeaderData(i, Qt::Horizontal, Headers[j]);
+//    }
+//}
 
 void RegularCustomers::createUi() {
-    ui->tableView->setModel(model);
+    ui->tableView->setModel(getModel());
 
     ui->tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
 
