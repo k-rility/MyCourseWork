@@ -11,11 +11,8 @@ Booking::~Booking() {
 
 void Booking::createUi() {
     ui->tableView->setModel(getModel());
+}
 
-    ui->tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
+void Booking::OnAddClicked() {
 
-    ui->tableView->setSelectionMode(QAbstractItemView::SingleSelection);
-
-    ui->tableView->resizeColumnsToContents();
-    ui->tableView->horizontalHeader()->setStretchLastSection(true);
 }

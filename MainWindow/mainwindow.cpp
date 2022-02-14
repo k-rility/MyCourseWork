@@ -43,7 +43,7 @@ void MainWindow::OnBookingClicked() {
 }
 
 void MainWindow::SignIn() {
-    if (!query.SignInQuery(ui_Auth.OnPasswordLineEdit(), ui_Auth.OnLoginLineEdit())) {
+    if (!db.SignInQuery(ui_Auth.OnPasswordLineEdit(), ui_Auth.OnLoginLineEdit())) {
         QMessageBox::warning(this, "Authorize", "Wrong login or password");
     } else {
         ui_Auth.close();

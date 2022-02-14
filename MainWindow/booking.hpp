@@ -15,6 +15,10 @@ public:
 
     void createUi();
 
+private slots:
+
+    void OnAddClicked();
+
 private:
     Ui::Booking *ui;
 };

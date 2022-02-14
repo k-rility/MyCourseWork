@@ -42,7 +42,7 @@ private:
     AuthWindow ui_Auth;
     RegularCustomers ui_RegularCustomers;
     Booking ui_Booking;
-    db_interface query;
+    db_interface db;
 };
 
 
