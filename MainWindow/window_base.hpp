@@ -21,6 +21,10 @@ protected:
 
     QSqlQueryModel *getModel() const;
 
+private slots:
+
+    void OnBackClicked();
+
 private:
     QSqlQueryModel *model;
 };

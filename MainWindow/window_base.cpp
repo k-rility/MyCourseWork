@@ -12,6 +12,10 @@ void window_base::setupModel(const QString &Query, const QStringList &Headers) {
     }
 }
 
-QSqlQueryModel* window_base::getModel()const {
+QSqlQueryModel *window_base::getModel() const {
     return model;
+}
+
+void window_base::OnBackClicked() {
+    this->close();
 }

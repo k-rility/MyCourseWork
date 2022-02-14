@@ -1,18 +1,19 @@
 #ifndef BOOKING_HPP_
 #define BOOKING_HPP_
 
-#include <QWidget>
-
+#include "window_base.hpp"
 
 namespace Ui { class Booking; }
 
-class Booking : public QWidget {
+class Booking : public window_base {
 Q_OBJECT
 
 public:
-    explicit Booking(QWidget *parent = nullptr);
+    explicit Booking(window_base *parent = nullptr);
 
-    ~Booking() ;
+    ~Booking() noexcept;
+
+    void createUi();
 
 private:
     Ui::Booking *ui;

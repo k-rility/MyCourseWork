@@ -4,8 +4,19 @@
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow) {
     ConnectButton();
     ui_RegularCustomers.setupModel("SELECT * FROM Clients WHERE count > 5",
-                                   QStringList() << trUtf8("id") << trUtf8("name") << trUtf8("count"));
+                                   QStringList()
+                                           << trUtf8("id")
+                                           << trUtf8("name")
+                                           << trUtf8("count"));
     ui_RegularCustomers.createUi();
+
+    ui_Booking.setupModel("SELECT * FROM Booking", QStringList()
+            << trUtf8("id")
+            << trUtf8("status")
+            << trUtf8("date")
+            << trUtf8("user")
+            << trUtf8("user count"));
+    ui_Booking.createUi();
     ui->setupUi(this);
 }
 
@@ -22,12 +33,12 @@ void MainWindow::ConnectButton() {
 }
 
 void MainWindow::OnRegularCustomersClicked() {
-    this->hide();
+//    this->hide();
     ui_RegularCustomers.show();
 }
 
 void MainWindow::OnBookingClicked() {
-    this->hide();
+//    this->hide();
     ui_Booking.show();
 }
 
