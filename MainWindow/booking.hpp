@@ -1,26 +1,39 @@
 #ifndef BOOKING_HPP_
 #define BOOKING_HPP_
 
-#include "window_base.hpp"
+#include <QWidget>
+#include <QString>
+#include <QStringList>
+#include <QSqlQueryModel>
+#include <QTableView>
 
-namespace Ui { class Booking; }
+#include "booking_dialog_add.hpp"
 
-class Booking : public window_base {
+namespace Ui {
+    class Booking;
+}
+
+class Booking : public QWidget {
 Q_OBJECT
-
 public:
-    explicit Booking(window_base *parent = nullptr);
+
+    explicit Booking(QWidget *parent = nullptr);
 
     ~Booking() noexcept;
 
     void createUi();
 
+    void setupModel(const QString &, const QStringList &);
+
 private slots:
+
+    void OnBackClicked();
 
     void OnAddClicked();
 
 private:
     Ui::Booking *ui;
+    QSqlQueryModel *model;
 };
 
 

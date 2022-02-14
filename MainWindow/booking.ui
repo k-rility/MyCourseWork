@@ -76,7 +76,7 @@ background-color: rgb(85, 87, 83);
    <property name="geometry">
     <rect>
      <x>330</x>
-     <y>620</y>
+     <y>610</y>
      <width>451</width>
      <height>41</height>
     </rect>
@@ -120,5 +120,24 @@ QPushButton::hover{
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>pushButton_Add</sender>
+   <signal>clicked()</signal>
+   <receiver>Booking</receiver>
+   <slot>OnAddClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>516</x>
+     <y>641</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>621</x>
+     <y>675</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
+ <slots>
+  <slot>OnAddClicked()</slot>
+ </slots>
 </ui>

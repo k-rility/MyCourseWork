@@ -40,9 +40,9 @@ add_executable(CourseWork
         MainWindow/booking.hpp
         MainWindow/booking.ui
 
-        MainWindow/window_base.cpp
-        MainWindow/window_base.hpp
-
+        MainWindow/booking_dialog_add.cpp
+        MainWindow/booking_dialog_add.hpp
+        MainWindow/booking_dialog_add.ui
         )
 
 target_link_libraries(CourseWork Qt5::Widgets Qt5::Core Qt5::Sql)

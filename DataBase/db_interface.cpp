@@ -1,23 +1,17 @@
 #include "db_interface.hpp"
 
-db_interface::db_interface(QObject *parent, const QString &DataBasePath) : QObject(parent),
-                                                                           database(QSqlDatabase::addDatabase(
-                                                                                   "QSQLITE")) {
-    if (!ConnectToDB(DataBasePath)) {
-        qDebug() << "Could not connecting to DataBase";
-    }
-}
+DataBaseInterface::DataBaseInterface(QObject *parent) : QObject(parent) {}
 
-db_interface::~db_interface() {}
+DataBaseInterface::~DataBaseInterface() {}
 
-inline bool db_interface::ConnectToDB(const QString &PathToDB) {
-
-    if (!QFile(PathToDB).exists()) {
+bool DataBaseInterface::ConnectToDataBase(const QString &PathToDataBase) {
+    database = QSqlDatabase::addDatabase("QSQLITE");
+    if (!QFile(PathToDataBase).exists()) {
         qDebug() << "Invalid database path" << database.lastError();
         return false;
     }
 
-    database.setDatabaseName(PathToDB);
+    database.setDatabaseName(PathToDataBase);
 
     if (!database.open()) {
         qDebug() << "Database not open" << database.lastError();
@@ -26,7 +20,8 @@ inline bool db_interface::ConnectToDB(const QString &PathToDB) {
     return true;
 }
 
-bool db_interface::SignInQuery(const QString &password, const QString &login) {
+bool DataBaseInterface::SignInQuery(const QString &password, const QString &login) {
+    QSqlQuery query;
     QString QueryStr = "SELECT * FROM AdminPass WHERE login='%1'";
     if (!query.exec(QueryStr.arg(login))) {
         qDebug() << "Unable to execute query - exiting" << query.lastError() << " : " << query.lastQuery();
@@ -44,7 +39,7 @@ bool db_interface::SignInQuery(const QString &password, const QString &login) {
     return true;
 }
 
-bool db_interface::CloseDataBase() {
+bool DataBaseInterface::CloseDataBase() {
     database.close();
 }
 

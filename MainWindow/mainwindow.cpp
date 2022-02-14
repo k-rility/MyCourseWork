@@ -2,6 +2,9 @@
 #include "ui_mainwindow.h"
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow) {
+    if (!db.ConnectToDataBase("/home/kirill/Рабочий стол/CourseDB")) {
+        qDebug() << "Could not connecting to DataBase";
+    }
     ConnectButton();
     ui_RegularCustomers.setupModel("SELECT * FROM Clients WHERE count > 5",
                                    QStringList()
@@ -9,7 +12,6 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
                                            << trUtf8("name")
                                            << trUtf8("count"));
     ui_RegularCustomers.createUi();
-
     ui_Booking.setupModel("SELECT * FROM Booking", QStringList()
             << trUtf8("id")
             << trUtf8("status")

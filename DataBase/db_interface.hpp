@@ -12,26 +12,25 @@
 #include <QSqlRecord>
 
 
-class db_interface : public QObject {
+class DataBaseInterface : public QObject {
 Q_OBJECT
 public:
 
-    explicit db_interface(QObject *parent = nullptr,
-                          const QString &DataBasePath = "/home/kirill/Рабочий стол/CourseDB");
+    explicit DataBaseInterface(QObject *parent = nullptr);
 
-    ~db_interface() noexcept;
+    ~DataBaseInterface() noexcept;
 
-    inline bool ConnectToDB(const QString &);
+    bool ConnectToDataBase(const QString &);
 
     bool SignInQuery(const QString &, const QString &);
 
-    bool CloseDataBase();
+    bool InsertIntoTable();
 
+    bool CloseDataBase();
 
 private:
 
     QSqlDatabase database;
-    QSqlQuery query;
 };
 
 

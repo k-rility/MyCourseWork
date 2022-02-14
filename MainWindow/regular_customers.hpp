@@ -1,23 +1,35 @@
 #ifndef REGULAR_CUSTOMERS_HPP_
 #define REGULAR_CUSTOMERS_HPP_
 
-#include "window_base.hpp"
-#include "DataBase/db_interface.hpp"
+#include <QWidget>
+#include <QString>
+#include <QStringList>
+#include <QSqlQueryModel>
+#include <QTableView>
 
 namespace Ui { class RegularCustomers; }
 
-class RegularCustomers : public window_base {
+class RegularCustomers : public QWidget {
 Q_OBJECT
 
 public:
-    explicit RegularCustomers(window_base *parent = nullptr);
+    explicit RegularCustomers(QWidget *parent = nullptr);
 
     ~RegularCustomers() noexcept;
 
+public:
     void createUi();
+
+    void setupModel(const QString&,const QStringList&);
+
+private slots:
+
+    void OnBackClicked();
 
 private:
     Ui::RegularCustomers *ui;
+    QSqlQueryModel *model;
+//    DataBaseInterface db;
 };
 
 
