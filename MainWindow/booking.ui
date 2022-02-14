@@ -16,13 +16,12 @@
   <property name="styleSheet">
    <string notr="true">background-color: rgb(46, 52, 54)</string>
   </property>
- </widget>
 <widget class="QPushButton" name="pushButton_Back">
    <property name="geometry">
     <rect>
-     <x>360</x>
-     <y>240</y>
-     <width>351</width>
+     <x>330</x>
+     <y>560</y>
+     <width>451</width>
      <height>41</height>
     </rect>
    </property>
@@ -35,7 +34,7 @@
 	border: 2px solid rgb(211, 215, 207);
 	border-radius:20px;
 	background-color: rgb(63,67,68);
-	fong: 13pt 'Ubuntu';
+	font: 13pt 'Ubuntu';
 }
 QPushButton::hover{
 	border: 2px solid rgb(85, 87, 83);
@@ -43,7 +42,7 @@ QPushButton::hover{
 }</string>
    </property>
    <property name="text">
-    <string>Booking</string>
+    <string>Back</string>
    </property>
  </widget>
 <widget class="QTableView" name="tableView">
@@ -59,11 +58,11 @@ QPushButton::hover{
     <string notr="true">QTableView{
 	background-color:rgb(213, 214, 225);
 	selection-background-color: rgb(52, 101, 164);
-	font: 13pt &quot;Ubuntu&quot;;
+	font: 13pt "Ubuntu";
 }
 QHeaderView::section{
 background-color: rgb(85, 87, 83);
-	font: 14pt &quot;Ubuntu&quot;;
+	font: 14pt "Ubuntu";
 }</string>
    </property>
    <property name="alternatingRowColors">
@@ -73,6 +72,7 @@ background-color: rgb(85, 87, 83);
     <enum>Qt::ElideNone</enum>
    </property>
   </widget>
+ </widget>
  <resources/>
  <connections>
   <connection>
