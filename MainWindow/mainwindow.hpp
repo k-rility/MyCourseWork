@@ -12,7 +12,6 @@
 #include "MainWindow/regular_customers.hpp"
 #include "MainWindow/booking.hpp"
 
-
 namespace Ui {
     class MainWindow;
 }

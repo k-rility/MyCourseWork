@@ -4,7 +4,7 @@
 #include <QWidget>
 #include <QString>
 #include <QStringList>
-#include <QSqlQueryModel>
+#include <QSqlTableModel>
 #include <QTableView>
 
 namespace Ui { class RegularCustomers; }
@@ -20,7 +20,7 @@ public:
 public:
     void createUi();
 
-    void setupModel(const QString&,const QStringList&);
+    void setupModel(const QStringList &);
 
 private slots:
 
@@ -28,7 +28,7 @@ private slots:
 
 private:
     Ui::RegularCustomers *ui;
-    QSqlQueryModel *model;
+    QSqlTableModel *model;
 //    DataBaseInterface db;
 };
 

@@ -9,6 +9,7 @@
 #include <QObject>
 
 #include "booking_dialog_add.hpp"
+#include "DataBase/db_interface.hpp"
 
 namespace Ui {
     class Booking;

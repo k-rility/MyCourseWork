@@ -17,9 +17,10 @@ RegularCustomers::~RegularCustomers() {
     delete ui;
 }
 
-void RegularCustomers::setupModel(const QString &Query, const QStringList &Headers) {
-    model = new QSqlQueryModel;
-    model->setQuery(Query);
+void RegularCustomers::setupModel(const QStringList &Headers) {
+    model = new QSqlTableModel(this);
+    model->setTable("RegularCustomers");
+    model->select();
     for (int i = 0, j = 0; i < model->columnCount(); i++, j++) {
         model->setHeaderData(i, Qt::Horizontal, Headers[j]);
     }

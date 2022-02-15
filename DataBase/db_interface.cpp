@@ -45,11 +45,13 @@ bool DataBaseInterface::CloseDataBase() {
 
 bool DataBaseInterface::InsertIntoBookingTable(const QVariantList &data) {
     QSqlQuery query;
-    QString QueryString = "INSERT INTO Booking (STATUS, USER, USER_COUNT, DATE) VALUES (:STATUS,:USER,:USER_COUNT,:DATE)";
+//    QString QueryString = "INSERT INTO Booking (STATUS, USER, USER_COUNT, DATE) VALUES (:STATUS,:USER,:USER_COUNT,:DATE)";
+    QString QueryString = "INSERT INTO Booking (STATUS, USER, USER_COUNT) VALUES (:STATUS,:USER,:USER_COUNT)";
+    query.prepare(QueryString);
     query.bindValue(":STATUS", data[0].toBool());
     query.bindValue(":USER", data[1].toString());
     query.bindValue(":USER_COUNT", data[2].toInt());
-    query.bindValue(":DATE", data[3].toDateTime());
+//    query.bindValue(":DATE", data[3].toDateTime());
     if (!query.exec()) {
         qDebug() << "Error insert into Booking";
         qDebug() << query.lastError() << " : " << query.lastQuery();
