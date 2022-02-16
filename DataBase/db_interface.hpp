@@ -32,6 +32,11 @@ public:
 
     bool OpenDataBase();
 
+    bool InitQueryModel(const QString &);
+
+    bool isExec(QSqlQuery &&) const;
+
+
 private:
 
     QSqlDatabase database;

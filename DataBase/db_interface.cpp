@@ -22,8 +22,8 @@ bool DataBaseInterface::ConnectToDataBase(const QString &PathToDataBase) {
     return true;
 }
 
-bool DataBaseInterface::OpenDataBase(){
-    database=QSqlDatabase::database("QSQLITE");
+bool DataBaseInterface::OpenDataBase() {
+    database = QSqlDatabase::database("QSQLITE");
 };
 
 bool DataBaseInterface::SignInQuery(const QString &password, const QString &login) {
@@ -49,6 +49,20 @@ bool DataBaseInterface::CloseDataBase() {
     database.commit();
     database.close();
     QSqlDatabase::removeDatabase("QSQLITE");
+}
+
+bool DataBaseInterface::InitQueryModel(const QString &queryString) {
+    QSqlQuery query;
+    query.prepare(queryString);
+    isExec(std::move(query));
+}
+
+bool DataBaseInterface::isExec(QSqlQuery &&query) const {
+    if (!query.exec())
+        return false;
+    else
+        return query.next();
+    return false;
 }
 
 bool DataBaseInterface::InsertIntoBookingTable(const QVariantList &data) {

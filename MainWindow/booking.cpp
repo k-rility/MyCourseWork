@@ -9,6 +9,7 @@ Booking::Booking(QWidget *parent) : QWidget(parent), ui(new Ui::Booking) {
                        << trUtf8("date")
                        << trUtf8("status"));
     ui->setupUi(this);
+    setupMapper();
     createUi();
 }
 
@@ -20,35 +21,36 @@ void Booking::createUi() {
     ui->tableView->setModel(model);
 
     ui->tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
-
     ui->tableView->setSelectionMode(QAbstractItemView::SingleSelection);
 
     ui->tableView->resizeColumnsToContents();
     ui->tableView->horizontalHeader()->setStretchLastSection(true);
+
+    ui->tableView->setSortingEnabled(true);
+
+    ui->comboBox_Status->addItems(QStringList() << "booked" << "not booked");
+}
+
+void Booking::setupMapper() {
+    mapper = new QDataWidgetMapper();
+    mapper->setModel(model);
+    mapper->addMapping(ui->lineEdit_User, 1);
+    mapper->addMapping(ui->dateTimeEdit_from, 2);
+    mapper->addMapping(ui->dateTimeEdit_until, 3);
+    mapper->addMapping(ui->comboBox_Status, 4);
+
+    mapper->setSubmitPolicy(QDataWidgetMapper::ManualSubmit);
 }
 
 void Booking::setupModel(const QStringList &Headers) {
-    model = new QSqlTableModel(this);
-    model->setTable("Booking");
-    model->select();
+    model = new QSqlQueryModel(this);
     for (int i = 0, j = 0; i < model->columnCount(); i++, j++) {
         model->setHeaderData(i, Qt::Horizontal, Headers[j]);
     }
 }
 
-void Booking::OnBackClicked() {
-    this->close();
+void Booking::OnSubmitClicked() {
+    mapper->submit();
+    model->insertRow(model->rowCount(QModelIndex()));
+    mapper->toLast();
 }
-
-void Booking::slotUpdateModel() {
-    model->select();
-}
-
-void Booking::OnAddClicked() {
-    booking_dialog_add *add_dialog = new booking_dialog_add();
-    QObject::connect(add_dialog, &booking_dialog_add::AcceptClicked, this, &Booking::slotUpdateModel);
-    add_dialog->setWindowTitle(trUtf8("Add booking"));
-    add_dialog->setAttribute(Qt::WA_DeleteOnClose);
-    add_dialog->exec();
-}
-

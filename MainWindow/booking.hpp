@@ -4,11 +4,12 @@
 #include <QWidget>
 #include <QString>
 #include <QStringList>
-#include <QSqlTableModel>
+#include <QSqlQueryModel>
 #include <QTableView>
 #include <QObject>
+#include <QDataWidgetMapper>
+#include <QDebug>
 
-#include "booking_dialog_add.hpp"
 namespace Ui {
     class Booking;
 }
@@ -23,19 +24,18 @@ public:
 
     void createUi();
 
+    void setupMapper();
+
     void setupModel(const QStringList &);
 
 private slots:
 
-    void OnBackClicked();
-
-    void OnAddClicked();
-
-    void slotUpdateModel();
+    void OnSubmitClicked();
 
 private:
     Ui::Booking *ui;
-    QSqlTableModel *model;
+    QSqlQueryModel *model;
+    QDataWidgetMapper*mapper;
 };
 
 
