@@ -9,8 +9,6 @@
 #include <QObject>
 
 #include "booking_dialog_add.hpp"
-#include "DataBase/db_interface.hpp"
-
 namespace Ui {
     class Booking;
 }
@@ -25,7 +23,7 @@ public:
 
     void createUi();
 
-    void setupModel( const QStringList &);
+    void setupModel(const QStringList &);
 
 private slots:
 

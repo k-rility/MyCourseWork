@@ -24,12 +24,6 @@ public:
 
     ~MainWindow() noexcept;
 
-    void AuthShow();
-
-    void ConnectButton();
-
-    void SignIn();
-
 private slots:
 
     void OnRegularCustomersClicked();
@@ -38,10 +32,6 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    AuthWindow ui_Auth;
-    RegularCustomers ui_RegularCustomers;
-    Booking ui_Booking;
-    DataBaseInterface db;
 };
 
 

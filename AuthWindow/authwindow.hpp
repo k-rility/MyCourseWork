@@ -5,6 +5,9 @@
 #include <QWidget>
 #include <QMessageBox>
 
+#include "DataBase/db_interface.hpp"
+#include "MainWindow/mainwindow.hpp"
+
 
 namespace Ui {
     class AuthWindow;
@@ -21,10 +24,6 @@ public:
     QString OnLoginLineEdit();
 
     QString OnPasswordLineEdit();
-
-signals:
-
-    void SignInClicked();
 
 private slots:
 

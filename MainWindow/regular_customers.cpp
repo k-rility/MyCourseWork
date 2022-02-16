@@ -3,14 +3,12 @@
 
 
 RegularCustomers::RegularCustomers(QWidget *parent) : QWidget(parent), ui(new Ui::RegularCustomers) {
-//    db.ConnectToDataBase("/home/kirill/Рабочий стол/CourseDB");
-//    setupModel("SELECT * FROM Clients WHERE count > 5",
-//               QStringList()
-//                       << trUtf8("id")
-//                       << trUtf8("name")
-//                       << trUtf8("count"));
+    setupModel(QStringList()
+                       << trUtf8("id")
+                       << trUtf8("user")
+                       << trUtf8("count"));
     ui->setupUi(this);
-//    createUi();
+    createUi();
 }
 
 RegularCustomers::~RegularCustomers() {
@@ -18,9 +16,8 @@ RegularCustomers::~RegularCustomers() {
 }
 
 void RegularCustomers::setupModel(const QStringList &Headers) {
-    model = new QSqlTableModel(this);
-    model->setTable("RegularCustomers");
-    model->select();
+    model = new QSqlQueryModel(this);
+    model->setQuery("SELECT * FROM Clients WHERE COUNT > 5");
     for (int i = 0, j = 0; i < model->columnCount(); i++, j++) {
         model->setHeaderData(i, Qt::Horizontal, Headers[j]);
     }
@@ -40,5 +37,3 @@ void RegularCustomers::createUi() {
 void RegularCustomers::OnBackClicked() {
     this->close();
 }
-
-

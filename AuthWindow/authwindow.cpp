@@ -20,5 +20,16 @@ QString AuthWindow::OnPasswordLineEdit() {
 }
 
 void AuthWindow::OnSignInClicked() {
-    emit SignInClicked();
+    DataBaseInterface *db = new DataBaseInterface(this);
+    if (!db->ConnectToDataBase("/home/kirill/Рабочий стол/CourseDB")) {
+        qDebug() << "Could not connecting to DataBase";
+    }
+    if (!db->SignInQuery(OnPasswordLineEdit(), OnLoginLineEdit())) {
+        QMessageBox::warning(this, "Authorize", "Wrong login or password");
+    } else {
+        MainWindow *mainWindow = new MainWindow;
+        mainWindow->setWindowTitle("Main Window");
+        mainWindow->show();
+        this->close();
+    }
 }

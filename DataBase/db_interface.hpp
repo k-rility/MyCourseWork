@@ -30,6 +30,8 @@ public:
 
     bool CloseDataBase();
 
+    bool OpenDataBase();
+
 private:
 
     QSqlDatabase database;

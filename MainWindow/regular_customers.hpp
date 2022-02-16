@@ -4,8 +4,10 @@
 #include <QWidget>
 #include <QString>
 #include <QStringList>
-#include <QSqlTableModel>
 #include <QTableView>
+#include <QSqlQueryModel>
+
+// Класс для вывода постоянных клиентов
 
 namespace Ui { class RegularCustomers; }
 
@@ -28,8 +30,7 @@ private slots:
 
 private:
     Ui::RegularCustomers *ui;
-    QSqlTableModel *model;
-//    DataBaseInterface db;
+    QSqlQueryModel *model;
 };
 
 

@@ -6,7 +6,6 @@
 #include <QSqlTableModel>
 #include <QSqlQuery>
 #include <QDebug>
-#include "DataBase/db_interface.hpp"
 
 namespace Ui { class booking_dialog_add; }
 
@@ -32,7 +31,6 @@ private:
     Ui::booking_dialog_add *ui;
     QDataWidgetMapper *mapper;
     QSqlTableModel *model;
-    DataBaseInterface db;
 };
 
 #endif // BOOKING_DIALOG_ADD_HPP_

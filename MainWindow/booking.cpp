@@ -2,8 +2,14 @@
 #include "ui_booking.h"
 
 Booking::Booking(QWidget *parent) : QWidget(parent), ui(new Ui::Booking) {
-//    db.ConnectToDataBase("/home/kirill/Рабочий стол/CourseDB");
+    setupModel(QStringList()
+                       << trUtf8("id")
+                       << trUtf8("user")
+                       << trUtf8("user_count")
+                       << trUtf8("date")
+                       << trUtf8("status"));
     ui->setupUi(this);
+    createUi();
 }
 
 Booking::~Booking() {
@@ -42,6 +48,7 @@ void Booking::OnAddClicked() {
     booking_dialog_add *add_dialog = new booking_dialog_add();
     QObject::connect(add_dialog, &booking_dialog_add::AcceptClicked, this, &Booking::slotUpdateModel);
     add_dialog->setWindowTitle(trUtf8("Add booking"));
+    add_dialog->setAttribute(Qt::WA_DeleteOnClose);
     add_dialog->exec();
 }
 
