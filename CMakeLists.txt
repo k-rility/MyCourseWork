@@ -40,6 +40,11 @@ add_executable(CourseWork
         MainWindow/booking.hpp
         MainWindow/booking.ui
 
+        MainWindow/ComboBoxItemDelegate.cpp
+        MainWindow/ComboBoxItemDelegate.hpp
+
+        MainWindow/DataEditDelegate.cpp
+        MainWindow/DataEditDelegate.hpp
         )
 
 target_link_libraries(CourseWork Qt5::Widgets Qt5::Core Qt5::Sql)

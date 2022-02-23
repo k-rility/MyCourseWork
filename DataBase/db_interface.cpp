@@ -51,33 +51,3 @@ bool DataBaseInterface::CloseDataBase() {
     QSqlDatabase::removeDatabase("QSQLITE");
 }
 
-bool DataBaseInterface::InitQueryModel(const QString &queryString) {
-    QSqlQuery query;
-    query.prepare(queryString);
-    isExec(std::move(query));
-}
-
-bool DataBaseInterface::isExec(QSqlQuery &&query) const {
-    if (!query.exec())
-        return false;
-    else
-        return query.next();
-    return false;
-}
-
-bool DataBaseInterface::InsertIntoBookingTable(const QVariantList &data) {
-    QSqlQuery query;
-    QString QueryString = "INSERT INTO Booking (STATUS, USER, USER_COUNT) VALUES (:STATUS,:USER,:USER_COUNT)";
-    query.prepare(QueryString);
-    query.bindValue(":STATUS", data[0].toBool());
-    query.bindValue(":USER", data[1].toString());
-    query.bindValue(":USER_COUNT", data[2].toInt());
-    if (!query.exec()) {
-        qDebug() << "Error insert into Booking";
-        qDebug() << query.lastError() << " : " << query.lastQuery();
-        return false;
-    } else {
-        return true;
-    }
-    return false;
-}

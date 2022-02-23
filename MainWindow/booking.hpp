@@ -4,11 +4,16 @@
 #include <QWidget>
 #include <QString>
 #include <QStringList>
-#include <QSqlQueryModel>
+#include <QSqlTableModel>
 #include <QTableView>
 #include <QObject>
 #include <QDataWidgetMapper>
 #include <QDebug>
+#include <QDateTime>
+
+#include "ComboBoxItemDelegate.hpp"
+#include "DataEditDelegate.hpp"
+
 
 namespace Ui {
     class Booking;
@@ -30,11 +35,11 @@ public:
 
 private slots:
 
-    void OnSubmitClicked();
+    void OnAddClicked();
 
 private:
     Ui::Booking *ui;
-    QSqlQueryModel *model;
+    QSqlTableModel *model;
     QDataWidgetMapper*mapper;
 };
 

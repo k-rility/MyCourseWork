@@ -9,16 +9,20 @@ MainWindow::~MainWindow() noexcept {
     delete ui;
 }
 
-void MainWindow::OnRegularCustomersClicked() {
-    RegularCustomers *regularCustomers = new RegularCustomers;
+void MainWindow::on_RegularCustomers_clicked()
+{
+    regularCustomers = new RegularCustomers;
     regularCustomers->setWindowTitle("Regular Customers");
     regularCustomers->setAttribute(Qt::WA_DeleteOnClose);
     regularCustomers->show();
 }
 
-void MainWindow::OnBookingClicked() {
-    Booking *booking = new Booking;
+
+void MainWindow::on_Booking_clicked()
+{
+    booking = new Booking;
     booking->setWindowTitle("Booking");
     booking->setAttribute(Qt::WA_DeleteOnClose);
     booking->show();
 }
+

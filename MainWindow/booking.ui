@@ -43,70 +43,11 @@ background-color: rgb(85, 87, 83);
     <enum>Qt::ElideNone</enum>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_User">
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>580</y>
-     <width>361</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QLineEdit{
-	color: rgb(211, 215, 207);
-	border: 2px solid rgb(211, 215, 207);
-	border-radius:20px;
-	padding-left: 20px;
-	padding-right: 20px;
-	background-color: rgb(63,67,68);
-	font: 13pt 'Ubuntu';
-}</string>
-   </property>
-   <property name="maxLength">
-    <number>40</number>
-   </property>
-  </widget>
-  <widget class="QDateTimeEdit" name="dateTimeEdit_from">
-   <property name="geometry">
-    <rect>
-     <x>570</x>
-     <y>590</y>
-     <width>211</width>
-     <height>26</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QComboBox" name="comboBox_Status">
-   <property name="geometry">
-    <rect>
-     <x>420</x>
-     <y>590</y>
-     <width>131</width>
-     <height>25</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QComboBox{
-	color: rgb(211, 215, 207);
-	border: 2px solid rgb(211, 215, 207);
-	border-radius:12px;
-	padding-left: 2px;
-	padding-right: 2px;
-	background-color: rgb(63,67,68);
-	font: 13pt 'Ubuntu';
-}
-
-QComboBox::drop-down{
-border: 0px;
-}</string>
-   </property>
-  </widget>
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>320</x>
-     <y>650</y>
+     <x>570</x>
+     <y>640</y>
      <width>451</width>
      <height>41</height>
     </rect>
@@ -136,32 +77,56 @@ background-color: rgb(45,47,48);
     <string>Submit</string>
    </property>
   </widget>
-  <widget class="QDateTimeEdit" name="dateTimeEdit_until">
+  <widget class="QPushButton" name="pushButton_2">
    <property name="geometry">
     <rect>
-     <x>800</x>
-     <y>590</y>
-     <width>221</width>
-     <height>26</height>
+     <x>40</x>
+     <y>640</y>
+     <width>451</width>
+     <height>41</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>13</pointsize>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+	color: rgb(211, 215, 207);
+	border: 2px solid rgb(211, 215, 207);
+	border-radius:20px;
+	background-color: rgb(63,67,68);
+	font: 13pt 'Ubuntu';
+}
+
+QPushButton::hover{
+border: 2px solid rgb(85,87,83);
+background-color: rgb(45,47,48);
+}</string>
+   </property>
+   <property name="text">
+    <string>Add</string>
    </property>
   </widget>
  </widget>
  <resources/>
  <connections>
   <connection>
-   <sender>pushButton</sender>
+   <sender>pushButton_2</sender>
    <signal>clicked()</signal>
    <receiver>Booking</receiver>
-   <slot>OnSubmitClicked()</slot>
+   <slot>OnAddClicked()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>381</x>
-     <y>661</y>
+     <x>188</x>
+     <y>658</y>
     </hint>
     <hint type="destinationlabel">
-     <x>256</x>
-     <y>666</y>
+     <x>17</x>
+     <y>692</y>
     </hint>
    </hints>
   </connection>

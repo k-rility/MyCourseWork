@@ -12,6 +12,7 @@
 #include <QSqlRecord>
 #include <QVariantList>
 #include <QDateTime>
+#include <QSqlQueryModel>
 
 
 class DataBaseInterface : public QObject {
@@ -26,15 +27,9 @@ public:
 
     bool SignInQuery(const QString &, const QString &);
 
-    bool InsertIntoBookingTable(const QVariantList &);
-
     bool CloseDataBase();
 
     bool OpenDataBase();
-
-    bool InitQueryModel(const QString &);
-
-    bool isExec(QSqlQuery &&) const;
 
 
 private:

@@ -29,6 +29,7 @@ void AuthWindow::OnSignInClicked() {
     } else {
         MainWindow *mainWindow = new MainWindow;
         mainWindow->setWindowTitle("Main Window");
+        mainWindow->setAttribute(Qt::WA_DeleteOnClose);
         mainWindow->show();
         this->close();
     }
