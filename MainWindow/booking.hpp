@@ -10,6 +10,7 @@
 #include <QDataWidgetMapper>
 #include <QDebug>
 #include <QDateTime>
+#include <QSqlRecord>
 
 #include "ComboBoxItemDelegate.hpp"
 #include "DataEditDelegate.hpp"
@@ -33,14 +34,18 @@ public:
 
     void setupModel(const QStringList &);
 
+    void defaultRow(int, QSqlRecord &);
+
 private slots:
 
     void OnAddClicked();
 
+    void OnDeleteClicked();
+
 private:
     Ui::Booking *ui;
     QSqlTableModel *model;
-    QDataWidgetMapper*mapper;
+    QDataWidgetMapper *mapper;
 };
 
 

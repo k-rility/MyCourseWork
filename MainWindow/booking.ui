@@ -74,7 +74,7 @@ background-color: rgb(45,47,48);
 }</string>
    </property>
    <property name="text">
-    <string>Submit</string>
+    <string>Delete</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_2">
@@ -130,9 +130,25 @@ background-color: rgb(45,47,48);
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>Booking</receiver>
+   <slot>OnDeleteClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>640</x>
+     <y>654</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>646</x>
+     <y>610</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>OnAddClicked()</slot>
-  <slot>OnSubmitClicked()</slot>
+  <slot>OnDeleteClicked()</slot>
  </slots>
 </ui>

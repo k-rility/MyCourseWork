@@ -3,9 +3,7 @@
 #include <QComboBox>
 #include <QApplication>
 
-ComboBoxItemDelegate::ComboBoxItemDelegate(QObject *parent) : QStyledItemDelegate(parent) {
-
-}
+ComboBoxItemDelegate::ComboBoxItemDelegate(QObject *parent) : QStyledItemDelegate(parent) {}
 
 QWidget *ComboBoxItemDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem &option,
                                             const QModelIndex &index) const {
@@ -16,7 +14,7 @@ QWidget *ComboBoxItemDelegate::createEditor(QWidget *parent, const QStyleOptionV
 }
 
 void ComboBoxItemDelegate::setEditorData(QWidget *editor, const QModelIndex &index) const {
-    if (index.column() == 4) {
+    if (index.column() == 5) {
         QString value = index.model()->data(index, Qt::EditRole).toString();
         QComboBox *comboBox = static_cast<QComboBox *>(editor);
         if (value == "booked")
@@ -41,7 +39,7 @@ void ComboBoxItemDelegate::updateEditorGeometry(QWidget *editor,
 
 void ComboBoxItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option,
                                  const QModelIndex &index) const {
-    if (index.column() == 4) {
+    if (index.column() == 5) {
         QStyleOptionComboBox comboBoxStyleOption;
         comboBoxStyleOption.state = option.state;
         comboBoxStyleOption.rect = option.rect;

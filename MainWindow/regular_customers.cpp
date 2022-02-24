@@ -34,6 +34,3 @@ void RegularCustomers::createUi() {
     ui->tableView->horizontalHeader()->setStretchLastSection(true);
 }
 
-void RegularCustomers::OnBackClicked() {
-    this->close();
-}

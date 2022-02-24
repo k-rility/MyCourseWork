@@ -7,8 +7,6 @@
 #include <QTableView>
 #include <QSqlQueryModel>
 
-// Класс для вывода постоянных клиентов
-
 namespace Ui { class RegularCustomers; }
 
 class RegularCustomers : public QWidget {
@@ -23,10 +21,6 @@ public:
     void createUi();
 
     void setupModel(const QStringList &);
-
-private slots:
-
-    void OnBackClicked();
 
 private:
     Ui::RegularCustomers *ui;
